@@ -2,5 +2,23 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+}
+
+.cards{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.cards .card-item{
+    background-color: white;
+    border: 2px solid red;
+    list-style: none;
+    width: 320px;
+    height: auto;
+}
+
+.cards .card-item img{
+    width: 316px;
 }
