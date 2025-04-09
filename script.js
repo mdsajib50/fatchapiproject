@@ -42,19 +42,27 @@ fetch(API)
 // Render Image
 
 function renderImages(data) {
-    cards.innerHTML = "";
+    cards.innerHTML = "Loading...";
+    const fragment = document.createDocumentFragment();
+
     data.forEach(item => {
         const { id, author, url, download_url, height, width } = item;
-        cards.innerHTML+=`<li class="card-item" id="${id}">
+        const li = document.createElement('li');
+        li.className = "card-item";
+        li.id = id;
+        li.innerHTML += `
                <figure>
                     <img src="${download_url}" alt="img" srcset="" class="img-fluid" width="120px">
                  </figure>
                  <h2>Author ${author}</h2>
                 <p>Size ${height} X ${width}</p>
                  <a href="${url}" class="btn">Download</a>
-             </li>`
+             `;
+        fragment.appendChild(li);
         
     })
+    cards.innerHTML = "";
+    cards.appendChild(fragment);
 }
 
 // SEARCH FUNCTION
